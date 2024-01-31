@@ -1,0 +1,52 @@
+Understand the syntax and benefits of arrow functions for concise and lexical scoping of `this`
+
+Arrow Functions: 
+Arrow functions are similar to general functions where the syntax is re-written.
+Since The functions include the arrows as part of the syntax, hence it is named 
+as arrow function. 
+
+We can save few lines of code using Arrow Functions. 
+ function square(num){
+                return num * num;
+              }
+              console.log(square(10));
+               var sqr = num=> num * num;  // Compact Syntax - reduced a line of code
+               console.log(sqr(10));
+
+Problem Statement: 
+var elements = [1,2,3,4,5,6,7,8];
+find the square of each number in the array and modify the array.
+
+var elements = [1,2,3,4,5,6,7,8];
+                // ES5 
+ 
+    var result = elements.map(function(element){
+            return element * element
+    })
+    console.log(result);
+
+     //ES6 
+      var result = elements.map(element => element * element)  //to reduce the lines of code
+      
+      console.log(result);
+---------------------------------------------------------------------
+  // kiran, ajay
+        var usernames = ["kiran","ram","rajesh","naveen","ajay"];
+ 
+              // ES5 
+                var result =  usernames.filter(function(username){
+                      if(username != "kiran" && username != "ajay"){
+                        
+                        return username;
+                      }
+                  })
+                  console.log(result);
+                   // ES6 
+                   var result =  usernames.filter((username) =>{
+                    if(username != "kiran" && username != "ajay"){
+                        return username;
+                      }
+                   }); 
+                   console.log(result);
+    var result =  usernames.filter(username =>  username != "kiran" && username != "ajay"); //single line of code
+                   console.log(result); 

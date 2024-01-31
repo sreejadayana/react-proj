@@ -1,0 +1,21 @@
+<html>
+    <head>
+    </head>
+     <body>
+           <script>
+                  var httpClient =  new XMLHttpRequest();
+                   console.log("Line 1")
+                  console.log(httpClient.readyState);
+                  httpClient.open('GET',"https://fakestoreapi.com/products");
+                  httpClient.send(); // API Call
+                  httpClient.onreadystatechange = function(){
+                        console.log("Line 16");
+                     if(httpClient.readyState == 4){
+                        console.log(httpClient.responseText);
+                     }
+                  }
+                 
+            </script>
+     </body>
+</html>
+ 

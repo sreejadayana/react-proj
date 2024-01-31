@@ -1,0 +1,677 @@
+Understand the syntax and benefits of arrow functions for concise and lexical scoping of `this`
+
+Arrow Functions: 
+Arrow functions are similar to general functions where the syntax is re-written.
+Since The functions include the arrows as part of the syntax, hence it is named 
+as arrow function. 
+
+We can save few lines of code using Arrow Functions. 
+ function square(num){
+                return num * num;
+              }
+              console.log(square(10));
+               var sqr = num=> num * num;  // Compact Syntax - reduced a line of code
+               console.log(sqr(10));
+
+Problem Statement: 
+var elements = [1,2,3,4,5,6,7,8];
+find the square of each number in the array and modify the array.
+
+var elements = [1,2,3,4,5,6,7,8];
+                // ES5 
+ 
+    var result = elements.map(function(element){
+            return element * element
+    })
+    console.log(result);
+
+     //ES6 
+      var result = elements.map(element => element * element)  //to reduce the lines of code
+      
+      console.log(result);
+---------------------------------------------------------------------
+  // kiran, ajay
+        var usernames = ["kiran","ram","rajesh","naveen","ajay"];
+ 
+              // ES5 
+                var result =  usernames.filter(function(username){
+                      if(username != "kiran" && username != "ajay"){
+                        
+                        return username;
+                      }
+                  })
+                  console.log(result);
+                   // ES6 
+                   var result =  usernames.filter((username) =>{
+                    if(username != "kiran" && username != "ajay"){
+                        return username;
+                      }
+                   }); 
+                   console.log(result);
+    var result =  usernames.filter(username =>  username != "kiran" && username != "ajay"); //single line of code
+                   console.log(result); 
+
+   23 jan 
+
+   Learn the differences between `let` and `const` for variable declaration and scoping.               
+
+Let and Const:
+Let keyword is used to create block scoped variables. 
+ function f1(){
+                              var a=100; 
+                              if(a < 200){
+                                 
+                                    let a = 900; // block scoped variable
+                                    console.log(a); // 900
+                              }
+                              console.log(a);  //  100
+                           }
+                           f1(); 
+
+const:  used to define constant values. 
+const does not allow to re-assign a new value.
+Primitives:
+const PINCODE = 500124; 
+                console.log(PINCODE);
+                PINCODE = 676777; 
+
+Non Primitives:
+Arrays: an arrat is a lineardatastrucutre
+
+ const USERS = ["user1","user2"];
+                 console.log(USERS.length);
+                 USERS.push("user3");
+                 USERS.push("user4"); 
+                 console.log(USERS.length);
+                 
+                 USERS = [",jndfv"]; // Error
+Task: Findout how to create an array that cannot be modified. 
+Objects: 
+ const EMPLOYEE = {
+                      name: "kiran", 
+                      address: "hyderabad"
+                 }
+                 EMPLOYEE.eid = 101; 
+                 
+                 console.log(EMPLOYEE);
+                 EMPLOYEE = {}; // Error
+
+Template Literals:
+Explore template literals for string interpolation and multiline string
+
+Template Literals:
+Used to write free style of text in a string using backticks (``). 
+ex: 
+<html>
+    <head>
+    </head>
+     <body>
+                      
+  <!--
+             Dear User, 
+                           
+                         Your AWS Subscription is about to end on 25 Jan 2024. Please renew it. 
+              Thanks,
+              AWS Team
+   -->
+         <script>
+ 
+        var email = " Dear User,\n\n\n\t\t\t Your AWS Subscription is about to end on 25 Jan 2024. Please renew it.\n\n Thanks,\n AWS Team";
+        console.log(email);
+          var date="26 Jan 2024";
+        var email = `   //backtick
+        
+        Dear User, 
+                           
+                      Your AWS Subscription is about to end on ${date}. Please renew it. // [string interpolation]
+        
+         Thanks,
+         AWS Team
+        
+        `
+        console.log(email);
+                
+         </script>
+     </body>
+</html>
+
+Some more examples: 
+ const resetLink = `${config.FRONT_END_URL}/#/auth/resetPassword?token=${token}&email=${data.email}`;
+                    const logoPath: any = `${config.FRONT_END_URL}/assets/images/logo.png`;
+                    mailOptions.subject = 'Digital Lync Reset Password';
+                    mailOptions.html = `
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                        <style>
+                            div{
+                                text-align: center;
+                                background-color: #fff;
+                                color: #5D5D5D;
+                            }
+                            img {
+                                margin: 30px 0px 20px 0px;
+                            }
+                            .content h2{
+                                text-align: left;
+                            }
+                            .content{
+                                width: 60%;
+                                margin: auto;
+                            }
+                            div p{
+                                text-align: justify;
+                                font-size: 13px;
+                                color: #5D5D5D;
+                                font-size: 18px;                                
+                            }
+                            .link a{
+                                font-size: 22px;
+                                color: #fff;
+                                background-color: #E8BD1F;
+                                padding: 10px 20px;
+                                border-radius: 8px;
+                            }   
+                            .link{
+                                padding: 30px 0px 45px 0px;
+                            }                                         
+                        </style>
+                    </head>
+                    <body>
+                        <div>
+                            <img src="${logoPath}">
+                            <div class="content">
+                                <h2>Hi ${data.firstname}, </h2>
+                                <p> A password reset for your account was requested.
+                                    Please click the link below to change your password.
+                                    Note that this link is valid for 24 hours.After the time
+                                    limit is expired, you will have to resubmit the request
+                                    for a password reset.</p>
+                            </div>
+                            <div class="link">
+                                <a href="${resetLink}"> RESET YOUR PASSWORD</a>
+                            </div>
+                        </div>
+                    </body>
+                    </html> 
+
+ex:
+  var baseurl="https://www.digital-lync.com"; 
+                  var path="/login"; 
+                  var queryString="?firstTimeLogin=true"
+                  var country="india";
+                  var state="telangana";
+                var url = baseurl+path+queryString+"&"+"country="+country+"&"+"state="+state; //ES5
+                console.log(url);
+                var url2 = `${baseurl}${path}${queryString}&country=${country}&state=${state}`; //ES6 (backtick ` $)
+                console.log(url2);
+
+Destructuring:
+Master destructuring arrays and objects to efficiently extract values.               
+
+Destructuring:
+Destructuring with arrays:
+  // ES5
+            //    var arr= [10,20,30,40,50,60]; 
+            //    var x,y,z; 
+            //     x= arr[0];
+            //     y=arr[1];
+            //     z=arr[2]; 
+            //     console.log(x,y,z);
+        // ES6
+        var arr= [10,20,30,40,50,60]; 
+        var [x,y,z]=arr;
+        console.log(x, y, z);
+         var arrObjs= [
+            {
+                id:101,
+                name:"abc"
+            },
+            {
+                id:102,
+                name:"xyz"
+            },
+            {
+                id:103,
+                name:"mdsd"
+            }
+         ]
+         var [m,n]= arrObjs;
+         console.log(m.id , m.name)
+         console.log(n.id , n.name)
+         
+Destructuring with Objects: 
+<html>
+    <head>
+    </head>
+     <body>
+                      
+  <!--
+             Dear User, 
+                           
+                         Your AWS Subscription is about to end on 25 Jan 2024. Please renew it. 
+              Thanks,
+              AWS Team
+   -->
+         <script>
+               
+  var x,y,z; 
+           var obj= {
+                   a:100, 
+                   b:200, 
+                   c:300
+           }
+        // ES5 
+        x = obj.a;
+        y = obj.b; 
+        z= obj.c;
+        console.log(x,y,z);
+        // ES6  - objects
+        var {a,b,c}= obj;
+        console.log(a,b,c);
+        
+         </script>
+     </body>
+</html>
+
+Default Parameters:
+Understand how to provide default values for function parameters.
+
+Default Parameters:
+  //ES5
+                    function f1(a,b,c){
+                         if(a == undefined){
+                             a = 100;
+                         }
+                         if(b == undefined){
+                             b = 200;
+                         }
+                         if(c == undefined){
+                             c = 300;
+                         }
+                       console.log(a);
+                       console.log(b); 
+                       console.log(c);
+                    }
+                    f1(1,2,3);
+
+                    //ES6
+                    function f2(a=10,b=20){
+                                console.log(a,b);
+                    }
+
+                    f2(0,2);
+
+use case: 
+
+function login(username = "guest", password = "guest"){
+                          if(username == "user" && password =="user"){
+                            console.log("user portal")
+                          }
+
+                          if(username == "admin" && password =="admin"){
+                            console.log("admin portal")
+                          }
+
+                          if(username == "guest" && password == "guest"){
+                                console.log("guest portal");
+                          }
+                      }
+
+                      login();
+
+
+    passing values only to specified parameters:
+
+     function f2(a=1,b=2){
+                                console.log(a,b);
+                    }
+
+                    f2(undefined,4); 
+
+
+Arrow function supports default parameter values: 
+
+ var login = (username="guest", password="guest") => username == "guest" && password == "guest" || username == "u1" && password == "p1"
+
+                    console.log(login());
+
+Spread and Rest Operators:
+Learn the applications of the spread (`...`) and rest (`...`) operators for array/object manipulation.
+
+
+Spread and Rest Operators:
+
+Spread: 
+
+   function f1(a,b,c,d){
+                     console.log(a,b,c,d);
+                 }
+                 var arr= [10,20,30,40];
+                  f1(arr[0],arr[1],arr[2],arr[3]);
+                  f1(...arr); // spread operator 
+ex: 
+
+var arr1= [1,2,3]; 
+               var arr2= [4,5,6]; 
+
+            var arr3 = arr1 + arr2; 
+
+            console.log(arr3);
+
+            arr3 = arr1.concat(arr2);
+
+            console.log(arr3);
+
+            arr3  = [...arr1,...arr2]; // spread operator 
+
+            console.log(arr3);
+
+
+with objects: 
+
+var pricing = {
+                             mrp: 1000, 
+                             discount: "50%", 
+                             finalPrice: 500,
+                             buyWithsuperCoins: 100
+                   }
+                   
+              var product = {
+                           name: "product 1", 
+                           brand: "brand 1", 
+                           description: "good product", 
+                           ...pricing // spread operator
+              }
+
+              console.log(product);
+
+        Ref: https://www.javascripttutorial.net/es-next/javascript-object-spread/
+
+
+Rest parameter: 
+
+  function f1(a,b){
+                        console.log(a,b);
+                        console.log(arguments[2]);
+                        console.log(arguments[3]);
+                  }
+
+                  f1(10,20,30,40,50,60);
+
+                  function f2(a,b,...x){ // Rest parameter
+                        console.log(a,b);
+                        console.log(x);
+                  }
+                  f2(10,20,30,40,50,60);
+
+
+Front End  - UI
+Web Services: A Service that can be accessed through / over internet.
+Backend - Logic - API URL 
+<html>
+    <head>
+    </head>
+     <body>
+           <script>
+                  var httpClient =  new XMLHttpRequest();
+                   console.log("Line 1")
+                  console.log(httpClient.readyState);
+                  httpClient.open('GET',"https://fakestoreapi.com/products");
+                  httpClient.send(); // API Call
+                  httpClient.onreadystatechange = function(){
+                        console.log("Line 16");
+                     if(httpClient.readyState == 4){
+                        console.log(httpClient.responseText);
+                     }
+                  }
+                 
+            </script>
+     </body>
+</html>
+ 
+ Promises and Async/Await:
+
+Learn about asynchronous programming using Promises and the more modern async/await syntax.
+
+Promises: 
+Promise is used to implement asynchronous programming. 
+
+Promise is an object that returns a result that could be the response with data 
+or response with error. 
+
+There are only two possibilities w.r.t promise,
+1. fulfilled -> resolved 
+2. unfulfilled -> rejected
+syntax: 
+ var promise = new Promise (function(resolve, reject)
+ {
+    // Logic
+ })
+
+ promise.
+ <html>
+    <head>
+    </head>
+     <body>
+            <script>
+                        function makeAPICall(method, url){
+                        
+                  var fakestoreapiPromise =  new Promise(function(resolve, reject){
+                    try{
+                       
+                        var httpClient =  new XMLHttpRequest();
+                  httpClient.open(method,url);
+                  httpClient.send(); // API Call
+                  
+                  httpClient.onreadystatechange = function(){
+                    console.log("Ready state", httpClient.readyState);
+                     if(httpClient.readyState == 4){
+                         if(httpClient.status == 200){
+                          var products = JSON.parse(httpClient.responseText);
+                         return resolve(products); 
+                         }
+                         else{
+                            return reject("some error ocurred");
+                         }
+                     }
+                    }
+                    }
+                    catch(error){
+                        console.log("catch block called");
+                       return  reject(error)
+                    }
+                })
+                return fakestoreapiPromise;
+            }
+                 
+            
+            makeAPICall("GET", "https://fakestoreapi.com/products")
+            .then( 
+                response => console.log(response),
+                error => console.log(error));
+               
+                
+            </script>
+     </body>
+</html> 
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Promise Object</h1>
+<h2>The then() Method</h2>
+<p id="demo"></p>
+<script>
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 0;
+// some code (try to change x to 5)
+  if (x == 0) {
+    myResolve("resolved");
+  } else {
+    myReject("rejected");
+  }
+});
+ console.log("x1")
+myPromise.then(
+  function(value) { console.log("x2"); myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+console.log("x3")
+</script>
+</body>
+</html>
+
+
+async and await: 
+
+async and await are used to implement asynchronous operations synchrnously.
+
+
+When the result of one api call is an input to the other api call, then the async 
+operations should be performed syncly. 
+
+
+without async and await:
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <script>
+             
+              function getData(){
+                      
+                       var promise = new Promise(function(resolve, reject){
+                            
+                          resolve([
+                          {
+                               name: "kiran", 
+                               id:101   
+                          }, 
+                          {
+                               name: "ravi", 
+                               id:102   
+                          },
+                        
+                        ])
+
+                       })
+
+                       return promise;
+              }
+
+              function init(){
+                console.log("line1");
+                 getData().then(
+                    function(response){
+                        console.log("line2");
+                          console.log(response);     
+                    }, 
+                    function(error){
+                             console.log(error);
+                    }
+                 )
+                 console.log("line3");
+              }
+
+              init();
+
+         </script>
+
+     </body>
+</html> 
+
+
+
+with async and await: 
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <script>
+             
+              function smschannel(){
+                return new Promise(() =>{});
+              }
+
+              async function getData(){
+                
+                          
+
+                       var promise = new Promise( function(resolve, reject){
+                                      
+                          resolve([
+                          {
+                               name: "kiran", 
+                               id:101   
+                          }, 
+                          {
+                               name: "ravi", 
+                               id:102   
+                          },
+                        
+                        ])
+
+                       })
+
+                       return promise;
+              }
+
+              async function init(){
+                 console.log("line 1");
+                   var response = await getData();
+                   console.log("response", response); 
+                    //  getData().then(
+                    //      (response) =>{
+                    //         console.log("line 2");
+                    //              console.log(response);
+                    //      }
+                    //  )
+                    console.log("line 2");    
+              }
+
+              init();
+
+         </script>
+
+     </body>
+</html>
+
+<!-- 
+
+1. sync ->  make call, wait and then use that response   (line by line)(it will take time)
+
+2. async -> make call, does not wait ,continue the execution for the rest of the 
+lines of code and call back functions will take the response later point of time. 
+oper1
+oper2
+oper3(oper1 is completed then uu can got oper2).
+
+
+-->
+
+
+
+
+
+       
+
+
+
+
+
+    

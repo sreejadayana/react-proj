@@ -1,0 +1,201 @@
+const:  used to define constant values. 
+const does not allow to re-assign a new value.
+Primitives:
+const PINCODE = 500124; 
+                console.log(PINCODE);
+                PINCODE = 676777; 
+Non Primitives:
+Arrays:
+ const USERS = ["user1","user2"];
+                 console.log(USERS.length);
+                 USERS.push("user3");
+                 USERS.push("user4"); 
+                 console.log(USERS.length);
+                 
+                 USERS = [",jndfv"]; // Error
+
+Task: Findout how to create an array that cannot be modified. 
+Objects: 
+ const EMPLOYEE = {
+                      name: "kiran", 
+                      address: "hyderabad"
+                 }
+                 EMPLOYEE.eid = 101; 
+                 
+                 console.log(EMPLOYEE);
+                 EMPLOYEE = {}; // Error
+                 
+Template Literals:
+Used to write free style of text in a string using backticks (``). 
+ex: 
+<html>
+    <head>
+    </head>
+     <body>
+                      
+  <!--
+             Dear User, 
+                           
+                         Your AWS Subscription is about to end on 25 Jan 2024. Please renew it. 
+              Thanks,
+              AWS Team
+   -->
+         <script>
+ 
+        var email = " Dear User,\n\n\n\t\t\t Your AWS Subscription is about to end on 25 Jan 2024. Please renew it.\n\n Thanks,\n AWS Team";
+        console.log(email);
+          var date="26 Jan 2024";
+        var email = `
+        
+        Dear User, 
+                           
+                      Your AWS Subscription is about to end on ${date}. Please renew it. 
+        
+         Thanks,
+         AWS Team
+        
+        `
+        console.log(email);
+                
+         </script>
+     </body>
+</html>
+
+Some more examples: 
+ const resetLink = `${config.FRONT_END_URL}/#/auth/resetPassword?token=${token}&email=${data.email}`;
+                    const logoPath: any = `${config.FRONT_END_URL}/assets/images/logo.png`;
+                    mailOptions.subject = 'Digital Lync Reset Password';
+                    mailOptions.html = `
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                        <style>
+                            div{
+                                text-align: center;
+                                background-color: #fff;
+                                color: #5D5D5D;
+                            }
+                            img {
+                                margin: 30px 0px 20px 0px;
+                            }
+                            .content h2{
+                                text-align: left;
+                            }
+                            .content{
+                                width: 60%;
+                                margin: auto;
+                            }
+                            div p{
+                                text-align: justify;
+                                font-size: 13px;
+                                color: #5D5D5D;
+                                font-size: 18px;                                
+                            }
+                            .link a{
+                                font-size: 22px;
+                                color: #fff;
+                                background-color: #E8BD1F;
+                                padding: 10px 20px;
+                                border-radius: 8px;
+                            }   
+                            .link{
+                                padding: 30px 0px 45px 0px;
+                            }                                         
+                        </style>
+                    </head>
+                    <body>
+                        <div>
+                            <img src="${logoPath}">
+                            <div class="content">
+                                <h2>Hi ${data.firstname}, </h2>
+                                <p> A password reset for your account was requested.
+                                    Please click the link below to change your password.
+                                    Note that this link is valid for 24 hours.After the time
+                                    limit is expired, you will have to resubmit the request
+                                    for a password reset.</p>
+                            </div>
+                            <div class="link">
+                                <a href="${resetLink}"> RESET YOUR PASSWORD</a>
+                            </div>
+                        </div>
+                    </body>
+                    </html> 
+
+ex:
+  var baseurl="https://www.digital-lync.com"; 
+                  var path="/login"; 
+                  var queryString="?firstTimeLogin=true"
+                  var country="india";
+                  var state="telangana";
+                var url = baseurl+path+queryString+"&"+"country="+country+"&"+"state="+state;
+                console.log(url);
+                var url2 = `${baseurl}${path}${queryString}&country=${country}&state=${state}`; 
+                console.log(url2);
+
+Destructuring:
+Destructuring with arrays:
+  // ES5
+            //    var arr= [10,20,30,40,50,60]; 
+            //    var x,y,z; 
+            //     x= arr[0];
+            //     y=arr[1];
+            //     z=arr[2]; 
+            //     console.log(x,y,z);
+        // ES6
+        var arr= [10,20,30,40,50,60]; 
+        var [x,y,z]=arr;
+        console.log(x, y, z);
+         var arrObjs= [
+            {
+                id:101,
+                name:"abc"
+            },
+            {
+                id:102,
+                name:"xyz"
+            },
+            {
+                id:103,
+                name:"mdsd"
+            }
+         ]
+         var [m,n]= arrObjs;
+         console.log(m.id , m.name)   (in react we use const[state, setstate] usestate({});  => react hooks)
+         console.log(n.id , n.name)
+         
+Destructuring with Objects: 
+<html>
+    <head>
+    </head>
+     <body>
+                      
+  <!--
+             Dear User, 
+                           
+                         Your AWS Subscription is about to end on 25 Jan 2024. Please renew it. 
+              Thanks,
+              AWS Team
+   -->
+         <script>
+               
+  var x,y,z; 
+           var obj= {
+                   a:100, 
+                   b:200, 
+                   c:300
+           }
+        // ES5 
+        x = obj.a;
+        y = obj.b; 
+        z= obj.c;
+        console.log(x,y,z);
+        // ES6  - objects
+        var {a,b,c}= obj;
+        console.log(a,b,c);
+        
+         </script>
+     </body>
+</html>

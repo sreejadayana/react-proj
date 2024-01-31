@@ -1,0 +1,87 @@
+Promises: 
+Promise is used to implement asynchronous programming. 
+Promise is an object that returns a result that could be the response with data 
+or response with error. 
+There are only two possibilities w.r.t promise,
+1. fulfilled -> resolved 
+2. unfulfilled -> rejected
+syntax: 
+ var promise = new Promise (function(resolve, reject)
+ {
+    // Logic
+ })
+ promise.
+ <html>
+    <head>
+    </head>
+     <body>
+            <script>
+                        function makeAPICall(method, url){
+                        
+                  var fakestoreapiPromise =  new Promise(function(resolve, reject){
+                    try{
+                       
+                        var httpClient =  new XMLHttpRequest();
+                  httpClient.open(method,url);
+                  httpClient.send(); // API Call
+                  
+                  httpClient.onreadystatechange = function(){
+                    console.log("Ready state", httpClient.readyState);
+                     if(httpClient.readyState == 4){
+                         if(httpClient.status == 200){
+                          var products = JSON.parse(httpClient.responseText);
+                         return resolve(products); 
+                         }
+                         else{
+                            return reject("some error ocurred");
+                         }
+                     }
+                    }
+                    }
+                    catch(error){
+                        console.log("catch block called");
+                       return  reject(error)
+                    }
+                })
+                return fakestoreapiPromise;
+            }
+                 
+            
+            makeAPICall("GET", "https://fakestoreapi.com/products")
+            .then( 
+                response => console.log(response),
+                error => console.log(error));
+               
+                
+            </script>
+     </body>
+</html> 
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Promise Object</h1>
+<h2>The then() Method</h2>
+<p id="demo"></p>
+<script>
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 0;
+// some code (try to change x to 5)
+  if (x == 0) {
+    myResolve("resolved");
+  } else {
+    myReject("rejected");
+  }
+});
+ console.log("x1")
+myPromise.then(
+  function(value) { console.log("x2"); myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+console.log("x3")
+</script>
+</body>
+</html>

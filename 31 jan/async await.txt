@@ -1,0 +1,167 @@
+async and await: 
+
+async and await are used to implement asynchronous operations synchrnously.
+
+
+When the result of one api call is an input to the other api call, then the async 
+operations should be performed syncly. 
+
+
+without async and await:
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <script>
+             
+              function getData(){
+                      
+                       var promise = new Promise(function(resolve, reject){
+                            
+                          resolve([
+                          {
+                               name: "kiran", 
+                               id:101   
+                          }, 
+                          {
+                               name: "ravi", 
+                               id:102   
+                          },
+                        
+                        ])
+
+                       })
+
+                       return promise;
+              }
+
+              function init(){
+                console.log("line1");
+                 getData().then(
+                    function(response){
+                        console.log("line2");
+                          console.log(response);     
+                    }, 
+                    function(error){
+                             console.log(error);
+                    }
+                 )
+                 console.log("line3");
+              }
+
+              init();
+
+         </script>
+
+     </body>
+</html> 
+
+
+
+with async and await: 
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <script>
+             
+              function smschannel(){
+                return new Promise(() =>{});
+              }
+
+              async function getData(){
+                
+                          
+
+                       var promise = new Promise( function(resolve, reject){
+                                      
+                          resolve([
+                          {
+                               name: "kiran", 
+                               id:101   
+                          }, 
+                          {
+                               name: "ravi", 
+                               id:102   
+                          },
+                        
+                        ])
+
+                       })
+
+                       return promise;
+              }
+
+              async function init(){
+                 console.log("line 1");
+                   var response = await getData();
+                   console.log("response", response); 
+                    //  getData().then(
+                    //      (response) =>{
+                    //         console.log("line 2");
+                    //              console.log(response);
+                    //      }
+                    //  )
+                    console.log("line 2");    
+              }
+
+              init();
+
+         </script>
+
+     </body>
+</html>
+
+<!-- 
+
+1. sync ->  make call, wait and then use that response 
+
+2. async -> make call, does not wait ,continue the execution for the rest of the 
+lines of code and call back functions will take the response later point of time. 
+
+-->
+
+
+1async/await:  you--->bed
+2analogy:before going to work at 8:00 you need to complete your morning routine
+3you have morning routine composed of 5 activites
+take a shower
+eat breakfast
+get dreesed
+put the makeup
+read the news paper
+4you have 2 choices pickone
+       1.doing each activity in a row
+       2.completing all activites no matter in the order
+5did uu choose the 2nd one: damn you cant getting dressed before you finished showering2z 
+6 to make sure that all 5 activites happen in order.we need async/await pattern
+
+here an example of asyns function:
+
+                const morningRoutine = async (startTime) => {
+
+                };
+
+
+
+               1st code : run in order
+               2nd code: random order
+
+               1.const morningRoutine = async (starttime) => {
+                    const step1FinishTime = await shower (startTime)
+                    const step2FinishTime = await eatbreakfast(startTime)
+                    const step3FinishTime = await getDreesed(startTime)
+                    const step4FinishTime = await shower (startTime)
+
+               }
+
+
+
