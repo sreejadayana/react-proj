@@ -1,0 +1,247 @@
+Conditional Rendering:
+
+import logo from './logo.svg';
+import './App.css';
+import { useState } from "react";
+import User from './User';
+import Login from './Login';
+function App() {
+      
+  const [isUserLoggedIn, setLogin] = useState(true);
+  const token = 1234;
+   
+  
+  return (
+    <div className="App">
+           { isUserLoggedIn && token==123 ? <User></User>: <Login></Login>}
+    </div>
+  );
+}
+export default App;
+
+Login.js:
+function Login(){
+     return (
+        <div>
+             <h1>Login Here</h1>
+        </div>
+     )
+}
+export default Login;
+
+User.js:
+function User(){
+     return(
+        <div>
+            <h1>Welcome User!</h1>
+        </div>
+     )
+}
+export default User;
+
+App.js:
+import logo from './logo.svg';
+import './App.css';
+import { useState } from "react";
+import User from './User';
+import Login from './Login';
+function App() {
+      
+  const [isUserLoggedIn, setLogin] = useState(true);
+  const token = 1234;
+   
+    if(isUserLoggedIn && token == 21234){
+               
+      if(10 == 101){
+            return (<div>
+                 <h1>User Logged In</h1>
+            </div>)
+      }
+      else{
+        return (
+          <div>
+                  <h1>Auth Token failed</h1>
+          </div>
+        )
+      } 
+    }
+    else{
+       return(
+        <div>
+           <h1>Redirect to Login</h1>
+        </div>
+       )
+    }
+}
+export default App;
+another example:
+import logo from './logo.svg';
+import './App.css';
+import { useState } from "react";
+import User from './User';
+import Login from './Login';
+function App() {
+      
+  const [isUserLoggedIn, setLogin] = useState(false);
+  const token = 1234;
+   
+    if(isUserLoggedIn && token == 1234){
+               
+      if(10 == 10){
+            return (<div>
+                 <h1>User Logged In</h1>
+            </div>)
+      }
+      else{
+        return (
+          <div>
+                  <h1>Auth Token failed</h1>
+          </div>
+        )
+      } 
+    }
+    else{
+       return(
+        <div>
+           <h1>Redirect to Login</h1> 
+             <input type="text " placeholder='enter auth'></input>
+             <button onClick={() =>{
+                 setLogin(true); 
+             }}>Login</button>
+        </div>
+       )
+    }
+}
+export default App;
+map and list:
+import logo from './logo.svg';
+import './App.css';
+import { useState } from "react";
+import User from './User';
+import Login from './Login';
+function App() {
+  
+    const users =[{
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "address": {
+        "street": "Victor Plains",
+        "suite": "Suite 879",
+        "city": "Wisokyburgh",
+        "zipcode": "90566-7771",
+        "geo": {
+          "lat": "-43.9509",
+          "lng": "-34.4618"
+        }
+      },
+      "phone": "010-692-6593 x09125",
+      "website": "anastasia.net",
+      "company": {
+        "name": "Deckow-Crist",
+        "catchPhrase": "Proactive didactic contingency",
+        "bs": "synergize scalable supply-chains"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "address": {
+        "street": "Douglas Extension",
+        "suite": "Suite 847",
+        "city": "McKenziehaven",
+        "zipcode": "59590-4157",
+        "geo": {
+          "lat": "-68.6102",
+          "lng": "-47.0653"
+        }
+      },
+      "phone": "1-463-123-4447",
+      "website": "ramiro.info",
+      "company": {
+        "name": "Romaguera-Jacobson",
+        "catchPhrase": "Face to face bifurcated interface",
+        "bs": "e-enable strategic applications"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "username": "Karianne",
+      "email": "Julianne.OConner@kory.org",
+      "address": {
+        "street": "Hoeger Mall",
+        "suite": "Apt. 692",
+        "city": "South Elvis",
+        "zipcode": "53919-4257",
+        "geo": {
+          "lat": "29.4572",
+          "lng": "-164.2990"
+        }
+      },
+      "phone": "493-170-9623 x156",
+      "website": "kale.biz",
+      "company": {
+        "name": "Robel-Corkery",
+        "catchPhrase": "Multi-tiered zero tolerance productivity",
+        "bs": "transition cutting-edge web services"
+      }
+    }]; 
+      
+    const iterator = () =>{
+     var list =  users.map((user) =>{
+        return <li key={user.id}>{user.name} {user.email} {user.company.name}</li>
+     }) 
+    return list;
+    }
+    return(
+      <div>
+             <ul>
+                      {iterator()}
+             </ul>
+      </div>
+    )
+  
+}
+export default App;
+Collapse
+
+
+
+
+React
+
+Reply
+
+
+
+
+
+
+

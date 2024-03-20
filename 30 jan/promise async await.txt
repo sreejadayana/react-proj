@@ -2,14 +2,17 @@ Promises:
 Promise is used to implement asynchronous programming. 
 Promise is an object that returns a result that could be the response with data 
 or response with error. 
+
 There are only two possibilities w.r.t promise,
 1. fulfilled -> resolved 
 2. unfulfilled -> rejected
+
 syntax: 
  var promise = new Promise (function(resolve, reject)
  {
     // Logic
  })
+ 
  promise.
  <html>
     <head>
@@ -57,6 +60,17 @@ syntax:
      </body>
 </html> 
 
+HTTP response status codes
+HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:
+
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+promise example javascript:
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -85,3 +99,11 @@ console.log("x3")
 </script>
 </body>
 </html>
+
+
+*if we want to implement async call to sync thats where you should be using a (async&await)
+sync:sync lo use chesteyy x1,x2,x3 we already know
+asyns lone use chesi sync(x1,x2,x3)
+thats means we can gone use (async/await)
+
+

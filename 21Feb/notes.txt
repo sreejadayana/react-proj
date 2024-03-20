@@ -1,0 +1,16 @@
+Styling Functional Components:
+
+Inline styles with JSX
+
+CSS Modules for local styles
+
+CSS-in-JS libraries (e.g., styled-components)
+
+
+Routing with React Router:
+
+Setting up routing with React Router 6
+
+Creating route components using functional components
+
+Navigating between routes with `Link` and `useHistory`

@@ -1,0 +1,41 @@
+Front End  - UI
+Web Services: A Service that can be accessed through / over internet.
+Backend - Logic - API URL 
+
+(ajax) and async both are same
+
+. sync ->  make call, wait and then use that response (line by line)
+
+2. async -> make call, does not wait ,continue the execution for the rest of the 
+lines of code and call back functions will take the response later point of time. 
+
+-->
+
+to learn little bit AJAX so we will try to understand how we can use uh http protocol on the frantend to make on API call and acces this data
+(asynchrouns javascriptxml) with out http we are not able to understand to provide communication between two websites two appliaction over to the internet
+***AJAX stands for asynchronous javascriptxml.
+which is use to send the httprequest in background that means, when we click on particular button then
+AJAX IS CAPABLE TO SEND THE HTTPREQUEST WITHOUT RELOADING THE WEPAGE forexample:facebook,youtube,instagram etc.,
+
+<html>
+    <head>
+    </head>
+     <body>
+           <script>
+                  var httpClient =  new XMLHttpRequest();    //it will help u bring the data from http protocol to your page
+                   console.log("Line 1")
+                  console.log(httpClient.readyState);
+                  httpClient.open('GET',"https://fakestoreapi.com/products");
+                  httpClient.send(); // API Call
+                  httpClient.onreadystatechange = function(){   //call backfunction
+                        console.log("Line 16");
+                     if(httpClient.readyState == 4){
+                        console.log(httpClient.responseText);
+                     }
+                  }
+                 
+            </script>
+     </body>
+</html>
+ 
+Promise: 

@@ -1,0 +1,5 @@
+In react hooks what general is provide is its give some functionality use debuge lo reactdevelopertools in install cheyali
+google lo right click echi extension  lo manage extension lo we have to search in reactdevelopertools and then click (remove from chrome)
+and them reactdevelopertools install
+you will get two new tabs in your chrome Devtools:" components " and "profiler"
+

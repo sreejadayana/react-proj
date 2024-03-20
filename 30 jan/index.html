@@ -1,0 +1,45 @@
+<html>
+    <head>
+    </head>
+     <body>
+            <script>
+                        function makeAPICall(method, url){
+                        
+                  var fakestoreapiPromise =  new Promise(function(resolve, reject){
+                    try{
+                       
+                        var httpClient =  new XMLHttpRequest();
+                  httpClient.open(method,url);
+                  httpClient.send(); // API Call
+                  
+                  httpClient.onreadystatechange = function(){
+                    console.log("Ready state", httpClient.readyState);
+                     if(httpClient.readyState == 4){
+                         if(httpClient.status == 200){
+                          var products = JSON.parse(httpClient.responseText);
+                         return resolve(products); 
+                         }
+                         else{
+                            return reject("some error ocurred");
+                         }
+                     }
+                    }
+                    }
+                    catch(error){
+                        console.log("catch block called");
+                       return  reject(error)
+                    }
+                })
+                return fakestoreapiPromise;
+            }
+                 
+            
+            makeAPICall("GET", "https://fakestoreapi.com/products")
+            .then( 
+                response => console.log(response),
+                error => console.log(error));
+               
+                
+            </script>
+     </body>
+</html> 

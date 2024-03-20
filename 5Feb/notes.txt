@@ -1,0 +1,38 @@
+
+Setting up a React development environment:
+
+ReactJS Environment Set up: 
+installation: https://nodejs.org/en 
+command to check:  go to terminal and type "node -v".
+
+create a react app  we need to use the following command: 
+npx create-react-app modulesdemo
+to run: 
+npm start 
+
+
+Modules:
+
+Understand how ES6 modules work and how to export/import functionalities between files.
+
+index.js:
+import { getDate,IP, user } from "./date";
+import { allUsers } from "./user";
+console.log(getDate());
+console.log(IP);
+console.log(user);
+console.log(allUsers);
+ 
+date.js:
+export function getDate(){
+    return new Date();
+}
+export const IP = "187.24.355"; 
+export var user = {
+      name: "kiran", 
+      address: "hyderabad"
+} 
+user.js:
+  export var allUsers =["user 1", "user 2","user 3"];
+  
+  

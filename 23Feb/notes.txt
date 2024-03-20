@@ -1,0 +1,27 @@
+Forms and Form Handling
+
+Building controlled forms with functional components
+
+Handling form submissions and user input
+
+Validating form data and displaying errors
+
+
+Hooks
+
+1. useContext :
+Accesses the context of a parent component without needing to pass (props) through each level.
+use context explanation:
+                   a
+
+               B       C (component)
+
+            D       E
+
+         F       G
+
+       H     I
+
+      J 
+
+      (redux) andhey use cheskapothey then obsivalluy we will take the help of this react context

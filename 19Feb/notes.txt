@@ -1,0 +1,10 @@
+crud aperation using making api calls(single page application)
+
+cd 19feb
+cd crudapp
+npm i axios
+using single page application install react-router-dom
+
+bootstrap 2 navbar:scr->index.html lo navbar forms and button
+
+routing with react router example(single page application).

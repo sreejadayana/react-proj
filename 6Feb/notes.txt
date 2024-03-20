@@ -1,0 +1,41 @@
+node package manager:any application developed using react is consider as a package and these packages are mainted by npm.
+
+npx:node package execute is a command to execute a node command to create a react project without installing react globally into the machine.
+(so any application that you can create using react, it is going to be considered as package )=>node package manager
+
+
+modules explanation:
+package.json:means
+  "name": "firstapp",(name of the application)
+  "version": "0.1.0",(current version) (it is called appliaction version)(0.1.0 semantic version)(0 means majorversion)(1 means version)(0 means patch release or bug )
+  "private": true,(this is not open source project)
+  depencieces are nothing but the libraries that your applicaton is dependent on so by default,any application that you work on using react by default this a the depencies that required
+
+"dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0", // ( react current version)
+    "react-dom": "^18.2.0",  //(reactdom is responsible for for shaping us in. for making the ui  loading faster giving the greate experncice to the user)
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+
+    "scripts": {
+    "start": "react-scripts start", //if uu want to run your react application.we need react script.alies name.
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+  CRA MEANS (create react app template)
+  install avuthudhi kadha dhani (depencieces) ani antaruu
+
+  react is opensource frantend library for develpoing the userinterface
+
+  iwill show uu the reactversion
+
+  we will start decussion about package.json:
+
+  terminal cd .\firstapp\
+  install bootstrap: npm i bootstrap (npm install bootstrap) this the command we have to use
+  unstial bootstrap: npm uninstall bootstrap

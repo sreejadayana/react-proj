@@ -60,7 +60,7 @@ Arrow function supports default parameter values:
                     console.log(login());
 
 
-Spread and Rest Operators:
+Spread and Rest Operators: spread operator can be used it any where
 
 Spread: 
 
@@ -109,7 +109,7 @@ var pricing = {
         Ref: https://www.javascripttutorial.net/es-next/javascript-object-spread/
 
 
-Rest parameter: 
+Rest parameter: (rest operator only end lo use cheyali)
 
   function f1(a,b){
                         console.log(a,b);

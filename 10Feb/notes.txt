@@ -1,0 +1,147 @@
+Props: 
+
+As we already know, React follows tree structure of hierarchy of components. 
+
+App is the root component. 
+
+
+                     App (data)
+
+
+              CompA             CompB 
+
+
+    CompC     CompD   CompE              CompF    CompG
+                                                     
+                                                CompH 
+
+
+Parent to Child Interaction: 
+
+App.js : 
+
+import logo from './logo.svg';
+import './App.css';
+import Employees from './Employees';
+
+function App() {
+
+  const employees = [
+    {
+      name: "kiran", 
+      address: "hyderabad"
+    }, 
+    {
+      name:"ravi", 
+      address: "Chennai"
+    },
+    {
+      name:"Naveen", 
+      address: "Chennai"
+    }
+  ];
+  return (
+    <div className="App">
+         <h1>I am in App Component!</h1>
+          <Employees emps={employees}></Employees>
+           
+    </div>
+  );
+}
+
+export default App;
+
+
+Employees.js:
+
+function Employees(props){
+
+    const listIterator = () =>{
+        var listItems = props.emps.map((emp)=>{
+             return <li key={emp.name}>{emp.name} {emp.address}</li>
+         })
+         return listItems;
+    }
+
+    return(
+        <div>
+             <h1>Employees Component!</h1>
+
+             <ul>
+                    {listIterator()}
+             </ul>
+        </div>
+    )
+}
+
+export default Employees;
+
+
+
+
+Child to parent: 
+
+
+
+App.js:
+
+import logo from './logo.svg';
+import './App.css';
+import Employees from './Employees';
+
+function App() {
+
+  const empData =(emps) =>{
+          console.log("emps", emps);
+  }
+
+  return (
+    <div className="App">
+         <h1>App Component!</h1>
+
+         <Employees getEmployeesData ={empData}></Employees>
+    </div>
+  );
+}
+
+export default App;
+ 
+
+
+
+ Employees.js:
+
+ import App from "./App";
+
+function Employees(props){
+    const employees = [
+        {
+          name: "kiran", 
+          address: "hyderabad"
+        }, 
+        {
+          name:"ravi", 
+          address: "Chennai"
+        },
+        {
+          name:"Naveen", 
+          address: "Chennai"
+        }
+      ];
+
+ console.log(props);
+
+ props.getEmployeesData(employees);
+
+
+    return(
+        <div>
+             <h1>Employees Component</h1>
+
+            
+        </div>
+    )
+
+}
+
+export default Employees;

@@ -1,0 +1,35 @@
+youtube clone project chesaru how to get the api call in youtube 
+
+-------------------------5,6,8 mar youtube clone project chesamu.()------------------------------------
+
+1. useContext :
+Accesses the context of a parent component without needing to pass props through each level.
+
+2. useImperativeHandle :(pending) this are complex onces
+Customizes the instance value that is exposed when using `ref` with `forwardRef`.
+
+3. useReducer :(pending) this are complex onces
+Similar to `useState`, but used for more complex state logic.
+
+4. useDebugValue :(pending) today we are seen this two hooks(11)
+Customizes the display of hooks in React DevTools.
+
+5. useCallback :(pending) today we are seen this is hook(11)
+Memoizes functions to prevent unnecessary re-renders in child components.
+
+6. useMemo :(pending)
+Memoizes values to prevent unnecessary calculations during re-renders.
+
+7. useRef :(we are already seen in useref)
+Allows access to the DOM directly or persists a value between renders without causing a re-render.
+
+8.Custom Hooks:( this one also incomplete) 
+
+Creating custom hooks for reusable logic
+
+Extracting common stateful logic into custom hooks
+
+(redux is also incomplete)
+
+
+

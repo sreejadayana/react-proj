@@ -1,0 +1,69 @@
+<html>
+     <head>
+
+     </head>
+
+      <body>
+           <center>
+         <h1>Add Employee</h1>
+             <form>
+ 
+                 <input type="text" id="id" placeholder="enter id"> <br><br>
+                 <input type="text" id="name" placeholder="enter name"> <br><br>
+                 <input type="text" id="address" placeholder="enter address"> <br><br>
+                 <button onclick="addEmployee()">Add Employee</button>
+
+             </form>
+            </center>
+
+                  <script>
+
+                          async function addEmployeeAPI(url, data){
+                              var response = await fetch(url, {
+                                      method:"POST", 
+                                      body: JSON.stringify(data), 
+                                      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+                               })
+                               var finalResponse = await response.json();
+                               console.log(finalResponse);
+                               return finalResponse;
+
+                          }
+
+                          async function getAllEmployees(url){
+                            var response = await fetch(url,{
+                                method:"GET",
+                                headers: {
+                                                "Content-type": "application/json; charset=UTF-8"
+                                         }
+    
+                            });
+
+                            var finalResponse = await response.json();
+                            return finalResponse;
+                          }
+
+                        async function addEmployee(){
+                             event.preventDefault();
+                            var id = document.getElementById("id").value;
+                            var name = document.getElementById("name").value;
+                            var address = document.getElementById("address").value;
+                            var employee = {id,name,address};
+                            var url ="https://crudcrud.com/api/bbd52bbd0a804b9f957fb9e9bc28ac43/employees"
+                           var response = await addEmployeeAPI(url,employee);
+                           console.log("response", response);
+                            if(response._id){
+                               var allEmployees= await getAllEmployees(url);
+                               console.log("allEmployees", allEmployees);
+                            }
+
+                        }
+                     
+
+                  </script>
+
+      </body>
+</html>
+

@@ -1,0 +1,36 @@
+Forms and Form Handling:
+
+Validating form data and displaying errors
+
+useRef :
+Allows access to the DOM directly or persists a value between renders without causing a re-render.
+
+enter asset id
+enter asset name
+enter aset descripition
+enter aset url
+enteraaseturl(button medha click chesteyy enable aavuthudhi are disable vasthudhi)
+
+formvalidations: one we create third party library and we can create the validation
+third party library are where pretty much easy and straight forwoard we cant customisaed.
+(aani valid aani osthey aaset aandhi highlight aavuthudhi)
+ {getItems()} i  didnt want to any api call in 4 march we remove this(use effect kudha  em use cheyakaledhu)
+
+ basic gaa class aathey render method andheyy create chesthamu
+ function based component athey render use chetaledhu.
+ ----->app.js lo css color apply aavuthudhi antey app.js lo header remove cheyali.. (ui medha color apply aavuthudhi)
+ we cannot use docunment odject model why? because this is virtual dom has we know when comes to react  renders everything through virtual domain.
+ so if uu are using again,using docunment object,then uu are overwriting the rules of react,okay
+ so how to get the hold of this and get any reference of any button or any input field. so yeah that's where we are going to take the help of one react hook called  "use ref"
+ use ref which allows acces to the DOM .directly are persistent value between renders without causing IT data mainly it acts it,it provides the access to get the DOM properties.
+
+(<button ref={submitBtnRef} onClick={addAsset}>Add Asset</button> ) it is like a dom operaration 
+here it is see like a viritual dom(docunment object model). (Bom means what browser object model) 
+
+
+fetch means :it is axis some data
+ its trying to some data it will be display in userinterface
+
+ web application: internet to em open chesinaa that we called it has awebapplication
+ wedsite:collection of webpages(moves newspaper).
+ webpage: if we are opening in naything in bowser are called it has

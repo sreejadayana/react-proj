@@ -1,0 +1,155 @@
+https://crudcrud.com/
+
+
+Problem Statement: 
+
+Implement CRUD operations using fetch. (frant end application using fetch)
+postmam lo "id" :101
+           "name":"sreeja",
+           "address":"hyderbad"
+           add employee medha click cheyalia apudhu console lo chudhali url (correct are wrong)
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+           <center>
+         <h1>Add Employee</h1>
+             <form>
+ 
+                 <input type="text" id="id" placeholder="enter id"> <br><br>
+                 <input type="text" id="name" placeholder="enter name"> <br><br>
+                 <input type="text" id="address" placeholder="enter address"> <br><br>
+                 <button onclick="addEmployee()">Add Employee</button>
+
+             </form>
+            </center>
+
+                  <script>
+
+                          async function addEmployeeAPI(url, data){
+                              var response = await fetch(url, {
+                                      method:"POST", 
+                                      body: JSON.stringify(data), 
+                                      headers: {
+        "Content-type": "application/json; charset=UTF-8"  //in google search fetch api call in post
+    }
+                               })
+                               var finalResponse = await response.json();
+                               console.log(finalResponse);
+                               return finalResponse;
+
+                          }
+
+                          async function getAllEmployees(url){
+                            var response = await fetch(url,{
+                                method:"GET",
+                                headers: {
+                                                "Content-type": "application/json; charset=UTF-8"
+                                         }
+    
+                            });
+
+                            var finalResponse = await response.json();
+                            return finalResponse;
+                          }
+
+                        async function addEmployee(){
+                             event.preventDefault();
+                            var id = document.getElementById("id").value;
+                            var name = document.getElementById("name").value;
+                            var address = document.getElementById("address").value;
+                            var employee = {id,name,address};
+                            var url ="https://crudcrud.com/api/e2878fa4c3f3437ba568e707971a314d/employee";
+                           var response = await addEmployeeAPI(url,employee);
+                           console.log("response", response);
+                            if(response._id){
+                               var allEmployees= await getAllEmployees(url);
+                               console.log("allEmployees", allEmployees);
+                            }
+
+                        }
+                     
+
+                  </script>
+
+      </body>
+</html>
+
+
+Array Methods: 
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+        
+           
+                  <script>
+
+                        // ES5
+                    var arr= [10,20,30,40,50,60,60, "a","b","c"]; 
+
+                       arr.forEach(function(element){
+                             console.log(element);
+                       })
+
+                       // ES6 
+                       
+                       arr.forEach( element => console.log(element));
+
+                       var result = arr.filter( element => typeof element  == "number")
+                       console.log(result);
+                  </script>
+
+      </body>
+</html> 
+
+
+
+Map: 
+
+If we want to store the data in key, value pair format, then we can use Map. 
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+        
+           
+                 <script>
+
+                   var users = new Map(); 
+
+                   users.set('101', {name:"ram", address: "hyderabad"}); 
+                   users.set('102', {name:"naveen", address: "hyderabad"}); 
+                   users.set('103', {name:"nikhil", address: "hyderabad"}); 
+                   users.set('104', {name:"annie", address: "hyderabad"}); 
+
+                   console.log(users);
+                   console.log(users.keys());
+                   console.log(users.values());
+                    console.log(users.get("102"));
+                    console.log(users.get("104"));
+                    console.log(users.size); 
+
+                    users.forEach((user, key) =>{
+                              console.log(user,key);
+                    })
+                   
+
+                 </script>
+
+      </body>
+</html>
+
+
+WeakMap: It does not store the primitive values as keys, instead it stores 
+the objects as keys.
+

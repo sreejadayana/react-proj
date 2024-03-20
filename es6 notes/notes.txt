@@ -664,6 +664,304 @@ oper3(oper1 is completed then uu can got oper2).
 
 -->
 
+1 feb
+Object Literal Enhancements:
+
+Discover shorthand notations and computed property names in object literals.
+
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <form>
+               <input type="text" placeholder="enter product name" id="name"> <br><br>
+               <input type="text" placeholder="enter product price" id="price"> <br><br>
+               <input type="text" placeholder="description" id="desc"> <br><br>
+               <input type="text" placeholder="brand" id="brand"> <br><br>
+               <button onclick="addProduct()">Add Product</button>
+
+         </form>
+
+          <script>
+
+                          function addProduct(){
+                              event.preventDefault();
+                            var name= document.getElementById("name").value;
+                            var price= document.getElementById("price").value;
+                            var desc= document.getElementById("desc").value;
+                            var brand= document.getElementById("brand").value;
+                               // ES5
+                            // var product = {
+                            //      name:name, 
+                            //      price:price, 
+                            //      desc:desc,
+                            //      brand:brand
+                            // }
+                              // ES6
+                            var product = {name,price,desc,brand};
+                            console.log(product)
+                          }
+
+          </script>
+
+     </body>
+</html>
+
+
+
+use case:
+
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+       
+
+          <script>
+
+                     var brand = {
+                                 brand_name: "XYZ", 
+                                 location: "Mumbai"
+                     }
+
+                     var reviews = "4.5";
+                     var getProductDetails = function(){
+                           return this.name + "\t"+ this.price;
+                     }
+                     // ES5
+                //   var product = {
+                //            name: "product 1", 
+                //            price: 9000,
+                //            brand:{
+                //            brand_name: brand.brand_name, 
+                //            location: brand.location
+                //            }
+                //   }
+
+                    // ES6
+                    var product = {
+                           name: "product 1", 
+                           price: 9000,
+                           brand,
+                           reviews,
+                           getProductDetails  
+                  }
+
+                  var x= { getProductDetails,name,brand_name:brand.brand_name};
+
+                  console.log(product.getProductDetails());
+                  console.log(x);   
+
+          </script>
+
+     </body>
+</html> 
+
+
+
+Computed Property: 
+
+ var x = "name";
+
+                    var obj = {
+                         [x]: "product 1"
+                    }
+                    console.log(obj); 
+
+
+
+Fetch API: (for making API call )
+this all code was already written internally in the fetch fun 
+so what we you can do instead of writing  all the code you just write fetch function
+fetch what is the dos is i return your promise so we can know.
+how to handle promise just give  (then)  Asynchorus/Await work with fetch
+
+fetch("https://fakestoreapi.com/products").then(
+                         response => response.json()
+                    ).then(
+                         response => {
+                               console.log(response);
+                         }
+                    ) 
+
+
+using async and await: 
+
+                async function getData(){
+                  var response =  await fetch("https://fakestoreapi.com/products");
+                      var data=  await response.json();
+                      console.log("data", data);
+                 }
+
+                 getData();
+
+
+Problem Statement: 
+
+Implement CRUD operations using fetch. 
+
+https://crudcrud.com/
+
+
+Problem Statement: 
+
+Implement CRUD operations using fetch. 
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+           <center>
+         <h1>Add Employee</h1>
+             <form>
+ 
+                 <input type="text" id="id" placeholder="enter id"> <br><br>
+                 <input type="text" id="name" placeholder="enter name"> <br><br>
+                 <input type="text" id="address" placeholder="enter address"> <br><br>
+                 <button onclick="addEmployee()">Add Employee</button>
+
+             </form>
+            </center>
+
+                  <script>
+
+                          async function addEmployeeAPI(url, data){
+                              var response = await fetch(url, {
+                                      method:"POST", 
+                                      body: JSON.stringify(data), 
+                                      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+                               })
+                               var finalResponse = await response.json();
+                               console.log(finalResponse);
+                               return finalResponse;
+
+                          }
+
+                          async function getAllEmployees(url){
+                            var response = await fetch(url,{
+                                method:"GET",
+                                headers: {
+                                                "Content-type": "application/json; charset=UTF-8"
+                                         }
+    
+                            });
+
+                            var finalResponse = await response.json();
+                            return finalResponse;
+                          }
+
+                        async function addEmployee(){
+                             event.preventDefault();
+                            var id = document.getElementById("id").value;
+                            var name = document.getElementById("name").value;
+                            var address = document.getElementById("address").value;
+                            var employee = {id,name,address};
+                            var url ="https://crudcrud.com/api/e2878fa4c3f3437ba568e707971a314d/employee";
+                           var response = await addEmployeeAPI(url,employee);
+                           console.log("response", response);
+                            if(response._id){
+                               var allEmployees= await getAllEmployees(url);
+                               console.log("allEmployees", allEmployees);
+                            }
+
+                        }
+                     
+
+                  </script>
+
+      </body>
+</html>
+
+
+Array Methods: 
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+        
+           
+                  <script>
+
+                        // ES5
+                    var arr= [10,20,30,40,50,60,60, "a","b","c"]; 
+
+                       arr.forEach(function(element){
+                             console.log(element);
+                       })
+
+                       // ES6 
+                       
+                       arr.forEach( element => console.log(element));
+
+                       var result = arr.filter( element => typeof element  == "number")
+                       console.log(result);
+                  </script>
+
+      </body>
+</html> 
+
+Map, Set, and WeakMap/WeakSet:   self learning(set and weakset)
+
+Explore the Map and Set data structures and their use cases, as well as the differences between them and WeakMap/WeakSet.
+
+Map: 
+
+If we want to store the data in key, value pair format, then we can use Map. 
+
+<html>
+     <head>
+
+     </head>
+
+      <body>
+        
+           
+                 <script>
+
+                   var users = new Map(); 
+
+                   users.set('101', {name:"ram", address: "hyderabad"}); 
+                   users.set('102', {name:"naveen", address: "hyderabad"}); 
+                   users.set('103', {name:"nikhil", address: "hyderabad"}); 
+                   users.set('104', {name:"annie", address: "hyderabad"}); 
+
+                   console.log(users);
+                   console.log(users.keys());
+                   console.log(users.values());
+                    console.log(users.get("102"));
+                    console.log(users.get("104"));
+                    console.log(users.size); 
+
+                    users.forEach((user, key) =>{
+                              console.log(user,key);
+                    })
+                   
+
+                 </script>
+
+      </body>
+</html>
+
+
+WeakMap: It does not store the primitive values as keys, instead it stores 
+the objects as keys.
+
+
+
 
 
 
